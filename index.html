@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mystic Beauty Lounge & Barbers | Nairobi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fdfaf8;color:#1a1218;overflow-x:hidden}
+:root{
+  --plum:#4A1942;
+  --plum2:#6B2860;
+  --rose:#C4527A;
+  --rose2:#E8789A;
+  --blush:#fce8f0;
+  --blush2:#fdf4f8;
+  --gold:#C9943A;
+  --cream:#fdfaf8;
+  --white:#ffffff;
+  --dark:#1a1218;
+  --mid:#4a3f46;
+  --muted:#9a8a93;
+  --border:#edd8e5;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:100;
+  background:rgba(253,250,248,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 4rem;height:70px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.nav-logo{display:flex;flex-direction:column;gap:1px}
+.nav-logo .name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--plum);letter-spacing:0.02em;
+}
+.nav-logo .sub{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);font-weight:500}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--mid);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.04em;transition:color 0.2s}
+.nav-links a:hover{color:var(--rose)}
+.nav-book{
+  background:var(--plum);color:#fff;
+  padding:0.6rem 1.6rem;font-size:0.75rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:50px;
+  transition:all 0.25s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.nav-book:hover{background:var(--plum2);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--plum);
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+  padding-top:70px;
+}
+/* geometric blobs */
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.blob1{width:500px;height:500px;top:-150px;right:-100px;background:rgba(196,82,122,0.15)}
+.blob2{width:350px;height:350px;bottom:-100px;left:-80px;background:rgba(201,148,58,0.1)}
+.blob3{width:200px;height:200px;top:40%;right:45%;background:rgba(255,255,255,0.03)}
+.hero-left{
+  padding:5rem 4rem;
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-award{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(201,148,58,0.15);border:1px solid rgba(201,148,58,0.3);
+  padding:0.4rem 1rem;border-radius:50px;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;width:fit-content;
+}
+.hero-award::before{content:'🏆';font-size:0.85rem}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,4.5vw,4.2rem);
+  line-height:1.1;color:#fff;font-weight:700;
+  margin-bottom:1.25rem;
+}
+.hero h1 em{color:var(--rose2);font-style:italic}
+.hero-sub{
+  font-size:0.95rem;color:rgba(255,255,255,0.6);
+  line-height:1.85;font-weight:300;max-width:420px;
+  margin-bottom:2.5rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
+.btn{
+  display:inline-block;padding:0.85rem 2rem;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;border:none;cursor:pointer;
+  transition:all 0.25s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;border-radius:50px;
+}
+.btn-rose{background:var(--rose);color:#fff}
+.btn-rose:hover{background:var(--rose2)}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.8);border:1.5px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{border-color:var(--rose2);color:var(--rose2)}
+.btn-plum{background:var(--plum);color:#fff}
+.btn-plum:hover{background:var(--plum2)}
+.btn-outline-plum{background:transparent;color:var(--plum);border:1.5px solid var(--plum)}
+.btn-outline-plum:hover{background:var(--plum);color:#fff}
+.hero-locations{display:flex;flex-direction:column;gap:0.75rem}
+.loc-item{
+  display:flex;align-items:center;gap:0.75rem;
+  font-size:0.8rem;color:rgba(255,255,255,0.55);font-weight:300;
+}
+.loc-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0}
+.loc-item a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.2s}
+.loc-item a:hover{color:var(--rose2)}
+.hero-right{
+  position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:4rem 3rem;
+}
+.hero-img-wrap{
+  position:relative;width:100%;max-width:400px;
+}
+.hero-img-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;padding:2.5rem;text-align:center;backdrop-filter:blur(8px);
+}
+.big-icon{font-size:5rem;margin-bottom:1rem;display:block}
+.card-stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem}
+.csr-item{text-align:center;padding:1rem 0.5rem;background:rgba(255,255,255,0.05);border-radius:12px}
+.csr-num{
+  font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;
+  color:var(--rose2);display:block;line-height:1;
+}
+.csr-label{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-top:0.3rem}
+.hours-strip{
+  margin-top:1.5rem;background:rgba(255,255,255,0.06);border-radius:10px;
+  padding:1rem;display:flex;justify-content:space-between;align-items:center;
+}
+.hs-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.4)}
+.hs-val{font-size:0.8rem;font-weight:500;color:#fff}
+.open-badge{
+  background:rgba(106,178,46,0.2);border:1px solid rgba(106,178,46,0.4);
+  color:#7ee85a;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;
+  padding:0.25rem 0.7rem;border-radius:50px;text-transform:uppercase;
+}
+
+/* ── SERVICES ── */
+.services{padding:7rem 4rem;background:var(--cream)}
+.sec-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--rose)}
+.eyebrow-txt{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);font-weight:600}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.8rem);color:var(--dark);font-weight:700;line-height:1.15}
+.sec-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;flex-wrap:wrap;gap:1rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;
+  transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--plum),var(--rose));
+  transform:scaleX(0);transition:transform 0.3s;transform-origin:left;
+}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(74,25,66,0.1)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--blush);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.25rem;
+  transition:background 0.3s;
+}
+.svc-card:hover .svc-icon{background:var(--plum)}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem}
+.svc-desc{font-size:0.8rem;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1rem}
+.svc-price{
+  display:inline-block;background:var(--blush);
+  color:var(--plum);font-size:0.72rem;font-weight:700;
+  padding:0.25rem 0.7rem;border-radius:50px;letter-spacing:0.05em;
+}
+
+/* ── PRICE LIST ── */
+.pricelist{padding:6rem 4rem;background:var(--plum)}
+.pricelist .sec-title{color:#fff}
+.pricelist .eyebrow-txt{color:var(--rose2)}
+.pricelist .eyebrow-dot{background:var(--rose2)}
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.price-section{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:2rem;
+}
+.ps-title{
+  font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;
+  color:var(--rose2);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;
+}
+.price-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.07);
+  font-size:0.82rem;
+}
+.price-row:last-child{border-bottom:none}
+.pr-name{color:rgba(255,255,255,0.75);font-weight:300}
+.pr-price{color:var(--gold);font-weight:600;font-size:0.85rem}
+.price-note{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:1.5rem;font-style:italic}
+
+/* ── BRANCHES ── */
+.branches{padding:6rem 4rem;background:var(--white)}
+.branches-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.branch-card{
+  border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  transition:all 0.3s;
+}
+.branch-card:hover{box-shadow:0 12px 35px rgba(74,25,66,0.12);transform:translateY(-3px)}
+.branch-header{
+  background:var(--plum);padding:2rem;position:relative;overflow:hidden;
+}
+.branch-header::after{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(196,82,122,0.2);
+}
+.branch-num{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;font-weight:700;color:rgba(255,255,255,0.08);
+  position:absolute;bottom:-0.5rem;right:1.5rem;line-height:1;
+}
+.branch-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.3rem}
+.branch-area{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:300;letter-spacing:0.05em;text-transform:uppercase}
+.branch-body{padding:2rem}
+.branch-detail{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem}
+.bd-icon{font-size:1rem;flex-shrink:0;margin-top:0.1rem}
+.bd-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;margin-bottom:0.2rem}
+.bd-val{font-size:0.85rem;color:var(--dark);font-weight:500}
+.bd-val a{color:var(--plum);text-decoration:none;font-weight:600}
+.branch-cta{margin-top:1.5rem;display:flex;gap:0.75rem}
+.mini-btn{
+  flex:1;padding:0.65rem 1rem;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;border-radius:50px;
+  text-align:center;text-decoration:none;cursor:pointer;
+  transition:all 0.2s;border:none;font-family:'DM Sans',sans-serif;
+}
+.mb-solid{background:var(--plum);color:#fff}
+.mb-solid:hover{background:var(--plum2)}
+.mb-outline{background:transparent;border:1.5px solid var(--border);color:var(--mid)}
+.mb-outline:hover{border-color:var(--rose);color:var(--rose)}
+
+/* ── GALLERY ── */
+.gallery{padding:6rem 4rem;background:var(--blush2)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(2,200px);
+  gap:1rem;margin-top:3rem;
+}
+.gal-item{
+  border-radius:12px;overflow:hidden;
+  background:var(--plum);display:flex;align-items:center;justify-content:center;
+  font-size:3rem;transition:transform 0.3s;cursor:pointer;
+  position:relative;
+}
+.gal-item:hover{transform:scale(1.02)}
+.gal-item:nth-child(1){grid-column:span 2;grid-row:span 2;font-size:5rem;background:linear-gradient(135deg,var(--plum),var(--rose))}
+.gal-item:nth-child(2){background:linear-gradient(135deg,#3d1538,var(--plum))}
+.gal-item:nth-child(3){background:linear-gradient(135deg,var(--rose),#a83d66)}
+.gal-item:nth-child(4){background:linear-gradient(135deg,#2d1030,#4A1942)}
+.gal-item:nth-child(5){background:linear-gradient(135deg,#6B2860,var(--rose))}
+.gal-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:0.75rem 1rem;
+  background:linear-gradient(transparent,rgba(0,0,0,0.6));
+  font-size:0.72rem;font-weight:600;color:#fff;letter-spacing:0.05em;
+}
+.gal-ig-cta{
+  margin-top:2rem;text-align:center;
+  font-size:0.85rem;color:var(--mid);
+}
+.gal-ig-cta a{color:var(--rose);font-weight:600;text-decoration:none}
+.gal-ig-cta a:hover{color:var(--plum)}
+
+/* ── TESTIMONIALS ── */
+.testimonials{padding:6rem 4rem;background:var(--white)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testi-card{
+  background:var(--blush2);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;position:relative;
+}
+.testi-quote{
+  font-size:3rem;font-family:'Playfair Display',serif;
+  color:var(--rose);line-height:0.8;margin-bottom:1rem;display:block;opacity:0.4;
+}
+.testi-text{font-size:0.85rem;color:var(--mid);line-height:1.75;font-weight:300;font-style:italic;margin-bottom:1.5rem}
+.testi-author{display:flex;align-items:center;gap:0.75rem}
+.testi-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--plum),var(--rose));
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;font-weight:700;color:#fff;
+}
+.testi-name{font-size:0.82rem;font-weight:600;color:var(--dark)}
+.testi-stars{font-size:0.7rem;color:var(--gold);margin-top:0.1rem}
+
+/* ── BOOKING ── */
+.booking{padding:7rem 4rem;background:var(--plum);position:relative;overflow:hidden}
+.booking::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:rgba(196,82,122,0.12);
+}
+.booking-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.booking-left .sec-title{color:#fff;margin-bottom:1rem}
+.booking-left p{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.85;font-weight:300;margin-bottom:2rem}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  background:#25D366;color:#fff;
+  padding:1rem 2rem;border-radius:50px;
+  font-size:0.82rem;font-weight:700;text-decoration:none;
+  transition:all 0.25s;letter-spacing:0.05em;
+}
+.wa-btn:hover{background:#1fb855;transform:translateY(-2px)}
+.wa-icon{font-size:1.2rem}
+.booking-form{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;padding:2.5rem;backdrop-filter:blur(8px);
+}
+.form-title{
+  font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;
+  color:#fff;margin-bottom:1.75rem;
+}
+.fg{margin-bottom:1.1rem}
+.fg label{
+  display:block;font-size:0.65rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);
+  font-weight:600;margin-bottom:0.45rem;
+}
+.fg input,.fg select,.fg textarea{
+  width:100%;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#fff;padding:0.8rem 1rem;
+  font-size:0.83rem;font-family:'DM Sans',sans-serif;
+  outline:none;border-radius:10px;transition:border-color 0.25s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rose)}
+.fg select option{background:var(--plum)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.submit-btn{
+  width:100%;background:var(--rose);color:#fff;
+  border:none;padding:1rem;border-radius:10px;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.25s;margin-top:0.5rem;
+}
+.submit-btn:hover{background:var(--rose2)}
+
+/* ── FOOTER ── */
+footer{background:#120d11;color:#fff;padding:4rem 4rem 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.foot-brand .brand-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;color:#fff;display:block;margin-bottom:0.2rem;
+}
+.foot-brand .brand-tag{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:1.25rem;display:block}
+.foot-brand p{font-size:0.78rem;color:rgba(255,255,255,0.3);line-height:1.8;font-weight:300;max-width:220px;margin-bottom:1.5rem}
+.social-row{display:flex;gap:0.5rem}
+.soc-btn{
+  width:36px;height:36px;border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;
+  transition:all 0.2s;
+}
+.soc-btn:hover{border-color:var(--rose);color:var(--rose)}
+.footer-col h4{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:1.1rem;font-weight:700}
+.footer-col ul{list-style:none}
+.footer-col li{font-size:0.78rem;color:rgba(255,255,255,0.35);padding:0.28rem 0;font-weight:300}
+.footer-col a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s}
+.footer-col a:hover{color:var(--rose)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:4rem 1.5rem}
+  .services{padding:5rem 1.5rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .pricelist{padding:5rem 1.5rem}
+  .price-grid{grid-template-columns:1fr}
+  .branches{padding:5rem 1.5rem}
+  .branches-grid{grid-template-columns:1fr}
+  .gallery{padding:5rem 1.5rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .gal-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .testimonials{padding:5rem 1.5rem}
+  .testi-grid{grid-template-columns:1fr}
+  .booking{padding:5rem 1.5rem}
+  .booking-inner{grid-template-columns:1fr;gap:3rem}
+  footer{padding:3rem 1.5rem 1.5rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+}
+
+/* ── WATERMARK ── */
+.wm-overlay{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;overflow:hidden;
+}
+.wm-overlay::before{
+  content:'DEMO · JOSIE GACAU · +254 745 882 043 · DEMO · JOSIE GACAU · +254 745 882 043 · DEMO · JOSIE GACAU · +254 745 882 043';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-35deg);
+  font-size:18px;font-weight:700;letter-spacing:.15em;
+  color:rgba(74,25,66,0.08);
+  white-space:nowrap;width:300%;text-align:center;
+  line-height:4em;
+  font-family:'DM Sans',sans-serif;
+  word-spacing:2em;
+}
+
+/* ── DEMO BANNER ── */
+.demo-banner{
+  background:#4A1942;color:#fce8f0;
+  text-align:center;padding:10px 20px;
+  font-size:11px;letter-spacing:.15em;font-weight:600;
+  font-family:'DM Sans',sans-serif;
+  position:relative;z-index:9999;
+}
+.demo-banner a{color:#E8789A;text-decoration:none;border-bottom:1px solid rgba(232,120,154,.35);}
+
+/* ── CLAIM BAR ── */
+.claim-bar{
+  background:#C4527A;padding:20px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+  font-family:'DM Sans',sans-serif;
+}
+.claim-bar p{font-size:13.5px;color:white;font-weight:300;}
+.claim-bar p strong{font-weight:700;}
+.claim-bar a{
+  display:inline-flex;align-items:center;gap:8px;
+  background:white;color:#4A1942;
+  padding:12px 28px;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:700;text-decoration:none;
+  transition:all .25s;white-space:nowrap;border-radius:50px;
+}
+.claim-bar a:hover{background:#fce8f0;}
+@media(max-width:600px){
+  .claim-bar{padding:16px 20px;flex-direction:column;text-align:center;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  🔒 This is a personalised demo built exclusively for Mystic Beauty Lounge &nbsp;·&nbsp; Design by <a href="mailto:josiegacau@gmail.com">Josie Gacau</a> &nbsp;·&nbsp; <a href="https://wa.me/254745882043">+254 745 882 043</a>
+</div>
+
+<div class="wm-overlay"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="name">Mystic Beauty Lounge</span>
+    <span class="sub">& Barbers · Nairobi</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#branches">Our Branches</a></li>
+    <li><a href="#booking">Book Now</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="hero-left">
+    <div class="hero-award">Nominated Best Natural Hair Salon · AfriKinky Awards Kenya</div>
+    <h1>
+      Create Your<br>
+      <em>Style</em> With Us ✨
+    </h1>
+    <p class="hero-sub">Nairobi's premier destination for natural hair, braiding, weaving, nails and barber services. Two locations. One unforgettable experience.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn btn-rose">Book Appointment</a>
+      <a href="#services" class="btn btn-outline">View Services</a>
+    </div>
+    <div class="hero-locations">
+      <div class="loc-item">
+        <div class="loc-dot"></div>
+        <span>📍 Menelik Suites, Ngong Road &nbsp;·&nbsp; <a href="tel:+254748177338">0748 177 338</a></span>
+      </div>
+      <div class="loc-item">
+        <div class="loc-dot"></div>
+        <span>📍 Highview Plaza, Kiambu Road &nbsp;·&nbsp; <a href="tel:+254718545501">0718 545 501</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-card">
+      <span class="big-icon">💇🏾‍♀️</span>
+      <div style="font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;font-weight:600">Nairobi's Natural Hair Specialists</div>
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.4rem;font-weight:300">Braids · Locs · Weaves · Nails · Barber</div>
+      <div class="card-stat-row">
+        <div class="csr-item">
+          <span class="csr-num" id="c1">0</span>
+          <span class="csr-label">Followers</span>
+        </div>
+        <div class="csr-item">
+          <span class="csr-num">2</span>
+          <span class="csr-label">Branches</span>
+        </div>
+        <div class="csr-item">
+          <span class="csr-num">★ 4.8</span>
+          <span class="csr-label">Rating</span>
+        </div>
+      </div>
+      <div class="hours-strip">
+        <div>
+          <div class="hs-label">Working Hours</div>
+          <div class="hs-val">Mon–Sat 8am–6pm &nbsp;·&nbsp; Sun 10am–6pm</div>
+        </div>
+        <div class="open-badge">Open Now</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="sec-header fade-up">
+    <div>
+      <div class="sec-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-txt">What We Offer</span></div>
+      <div class="sec-title">Our Services</div>
+    </div>
+    <a href="#booking" class="btn btn-plum" style="padding:0.7rem 1.5rem;font-size:0.73rem">Book Now →</a>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card fade-up">
+      <div class="svc-icon">🌿</div>
+      <div class="svc-name">Natural Hair Styling</div>
+      <div class="svc-desc">Specialists in all natural hair textures. From wash & go sets to protective styles — we celebrate your natural crown.</div>
+      <span class="svc-price">From Ksh 500</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon">🪢</div>
+      <div class="svc-name">Braiding & Cornrows</div>
+      <div class="svc-desc">Knotless braids, cornrows, box braids, Ghana braids, micro braids — all done by expert hands with care for your scalp.</div>
+      <span class="svc-price">From Ksh 1,500</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon">🌀</div>
+      <div class="svc-name">Locs — Gypsy & Wavy</div>
+      <div class="svc-desc">Our signature specialty. Gypsy locs, wavy locs, faux locs — installed to perfection with quality hair included.</div>
+      <span class="svc-price">From Ksh 3,500</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon">💃</div>
+      <div class="svc-name">Weaving & Extensions</div>
+      <div class="svc-desc">Sew-ins, closure installs, quick weaves and full weave styles using premium hair extensions for a flawless finish.</div>
+      <span class="svc-price">From Ksh 2,000</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon">💅</div>
+      <div class="svc-name">Nails — Mani & Pedi</div>
+      <div class="svc-desc">Gel nails, acrylics, nail art, manicures and pedicures. Let us pamper your hands and feet to perfection.</div>
+      <span class="svc-price">From Ksh 800</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon">✂️</div>
+      <div class="svc-name">Barber Services (Men)</div>
+      <div class="svc-desc">Precision fades, line-ups, beard trims and styling for the modern gentleman. Our barbers keep you sharp.</div>
+      <span class="svc-price">From Ksh 500</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE LIST -->
+<section class="pricelist" id="pricing">
+  <div class="sec-eyebrow fade-up"><div class="eyebrow-dot" style="background:var(--rose2)"></div><span class="eyebrow-txt">Transparent Pricing</span></div>
+  <div class="sec-title fade-up" style="color:#fff;margin-top:0.5rem">Service Price List</div>
+  <div class="price-grid">
+    <div class="price-section fade-up">
+      <div class="ps-title">🌿 Natural Hair & Braids</div>
+      <div class="price-row"><span class="pr-name">Cornrows (simple)</span><span class="pr-price">Ksh 500 – 1,200</span></div>
+      <div class="price-row"><span class="pr-name">Box Braids (medium)</span><span class="pr-price">Ksh 2,500 – 3,500</span></div>
+      <div class="price-row"><span class="pr-name">Knotless Braids</span><span class="pr-price">Ksh 3,000 – 4,500</span></div>
+      <div class="price-row"><span class="pr-name">Ghana Braids</span><span class="pr-price">Ksh 1,500 – 2,500</span></div>
+      <div class="price-row"><span class="pr-name">Hair Treatment</span><span class="pr-price">Ksh 1,500</span></div>
+    </div>
+    <div class="price-section fade-up">
+      <div class="ps-title">🌀 Locs & Specialty Styles</div>
+      <div class="price-row"><span class="pr-name">Gypsy / Wavy Locs</span><span class="pr-price">Ksh 4,700</span></div>
+      <div class="price-row"><span class="pr-name">River Locs</span><span class="pr-price">Ksh 4,000 – 5,500</span></div>
+      <div class="price-row"><span class="pr-name">Faux Locs (short)</span><span class="pr-price">Ksh 3,500</span></div>
+      <div class="price-row"><span class="pr-name">Faux Locs (long)</span><span class="pr-price">Ksh 4,500 – 5,500</span></div>
+      <div class="price-row"><span class="pr-name">Crochet Styles</span><span class="pr-price">Ksh 2,500 – 3,500</span></div>
+    </div>
+    <div class="price-section fade-up">
+      <div class="ps-title">💅 Nails & Beauty</div>
+      <div class="price-row"><span class="pr-name">Manicure (basic)</span><span class="pr-price">Ksh 800</span></div>
+      <div class="price-row"><span class="pr-name">Pedicure (basic)</span><span class="pr-price">Ksh 1,000</span></div>
+      <div class="price-row"><span class="pr-name">Gel Nails</span><span class="pr-price">Ksh 1,500 – 2,500</span></div>
+      <div class="price-row"><span class="pr-name">Acrylic Nails</span><span class="pr-price">Ksh 2,000 – 3,000</span></div>
+      <div class="price-row"><span class="pr-name">Nail Art (per nail)</span><span class="pr-price">Ksh 50 – 200</span></div>
+    </div>
+    <div class="price-section fade-up">
+      <div class="ps-title">✂️ Weaves & Barber</div>
+      <div class="price-row"><span class="pr-name">Weave Sew-in</span><span class="pr-price">Ksh 2,000 – 3,500</span></div>
+      <div class="price-row"><span class="pr-name">Closure Install</span><span class="pr-price">Ksh 2,500 – 4,000</span></div>
+      <div class="price-row"><span class="pr-name">Haircut (men)</span><span class="pr-price">Ksh 500 – 800</span></div>
+      <div class="price-row"><span class="pr-name">Fade + Line Up</span><span class="pr-price">Ksh 600 – 1,000</span></div>
+      <div class="price-row"><span class="pr-name">Beard Trim & Shape</span><span class="pr-price">Ksh 300 – 500</span></div>
+    </div>
+  </div>
+  <p class="price-note fade-up">* Prices inclusive of 3 packets of braiding hair where applicable. Prices may vary based on hair length and complexity. WhatsApp us for exact quotes.</p>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches" id="branches">
+  <div class="sec-eyebrow fade-up"><div class="eyebrow-dot"></div><span class="eyebrow-txt">Find Us</span></div>
+  <div class="sec-title fade-up" style="margin-top:0.5rem">Our 2 Locations</div>
+  <div class="branches-grid">
+    <div class="branch-card fade-up">
+      <div class="branch-header">
+        <div class="branch-num">01</div>
+        <div class="branch-name">Ngong Road Branch</div>
+        <div class="branch-area">Kilimani · Flagship Location</div>
+      </div>
+      <div class="branch-body">
+        <div class="branch-detail">
+          <div class="bd-icon">📍</div>
+          <div>
+            <div class="bd-label">Address</div>
+            <div class="bd-val">Menelik Suites, Menelik Road, Off Ngong Road, Kilimani</div>
+          </div>
+        </div>
+        <div class="branch-detail">
+          <div class="bd-icon">📞</div>
+          <div>
+            <div class="bd-label">Phone / WhatsApp</div>
+            <div class="bd-val"><a href="tel:+254748177338">0748 177 338</a></div>
+          </div>
+        </div>
+        <div class="branch-detail">
+          <div class="bd-icon">🕐</div>
+          <div>
+            <div class="bd-label">Hours</div>
+            <div class="bd-val">Mon–Sat 8:00am – 6:00pm &nbsp;|&nbsp; Sun 10:00am – 6:00pm</div>
+          </div>
+        </div>
+        <div class="branch-cta">
+          <a href="tel:+254748177338" class="mini-btn mb-solid">Call Now</a>
+          <a href="https://wa.me/254748177338" class="mini-btn mb-outline">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="branch-card fade-up">
+      <div class="branch-header" style="background:linear-gradient(135deg,var(--rose),var(--plum))">
+        <div class="branch-num">02</div>
+        <div class="branch-name">Kiambu Road Branch</div>
+        <div class="branch-area">Highview Plaza · New Location</div>
+      </div>
+      <div class="branch-body">
+        <div class="branch-detail">
+          <div class="bd-icon">📍</div>
+          <div>
+            <div class="bd-label">Address</div>
+            <div class="bd-val">Highview Plaza, Kiambu Road, Nairobi</div>
+          </div>
+        </div>
+        <div class="branch-detail">
+          <div class="bd-icon">📞</div>
+          <div>
+            <div class="bd-label">Phone / WhatsApp</div>
+            <div class="bd-val"><a href="tel:+254718545501">0718 545 501</a></div>
+          </div>
+        </div>
+        <div class="branch-detail">
+          <div class="bd-icon">🕐</div>
+          <div>
+            <div class="bd-label">Hours</div>
+            <div class="bd-val">Mon–Sat 8:00am – 6:00pm &nbsp;|&nbsp; Sun 10:00am – 6:00pm</div>
+          </div>
+        </div>
+        <div class="branch-cta">
+          <a href="tel:+254718545501" class="mini-btn mb-solid">Call Now</a>
+          <a href="https://wa.me/254718545501" class="mini-btn mb-outline">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="sec-eyebrow fade-up"><div class="eyebrow-dot"></div><span class="eyebrow-txt">Our Work</span></div>
+  <div class="sec-title fade-up" style="margin-top:0.5rem">Style Gallery</div>
+  <div class="gallery-grid">
+    <div class="gal-item fade-up"><span>💆🏾‍♀️</span><div class="gal-label">Natural Hair Styling</div></div>
+    <div class="gal-item fade-up"><span>🪢</span><div class="gal-label">Box Braids</div></div>
+    <div class="gal-item fade-up"><span>🌀</span><div class="gal-label">Gypsy Locs</div></div>
+    <div class="gal-item fade-up"><span>💅</span><div class="gal-label">Nail Art</div></div>
+    <div class="gal-item fade-up"><span>✂️</span><div class="gal-label">Barber Services</div></div>
+  </div>
+  <div class="gal-ig-cta fade-up">
+    See 2,492 more styles on our Instagram &nbsp;
+    <a href="https://www.instagram.com/mysticbeautyloungeke/" target="_blank">@mysticbeautyloungeke →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="sec-eyebrow fade-up"><div class="eyebrow-dot"></div><span class="eyebrow-txt">Client Love</span></div>
+  <div class="sec-title fade-up" style="margin-top:0.5rem">What Our Clients Say</div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <span class="testi-quote">"</span>
+      <div class="testi-text">This has always been my go-to for anything to do with braiding. Sarah is very kind, fast and gentle on the scalp — I didn't even get the headache you usually get after braiding!</div>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Anita W.</div>
+          <div class="testi-stars">★★★★★ &nbsp; Ngong Road Branch</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <span class="testi-quote">"</span>
+      <div class="testi-text">I would recommend this salon 100%. They cater to young children too so don't miss out on bringing your little ones to get bomb hairstyles. Amazing work every time!</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--rose),#a83d66)">M</div>
+        <div>
+          <div class="testi-name">Margaret K.</div>
+          <div class="testi-stars">★★★★★ &nbsp; Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <span class="testi-quote">"</span>
+      <div class="testi-text">The best salon in Kilimani — full stop. Very affordable, professional service, and the atmosphere is always welcoming. My whole family comes here now. Will never go anywhere else.</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--gold),#a8732a)">S</div>
+        <div>
+          <div class="testi-name">Sarah M.</div>
+          <div class="testi-stars">★★★★★ &nbsp; Facebook Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-left">
+      <div class="sec-eyebrow"><div class="eyebrow-dot" style="background:var(--rose2)"></div><span class="eyebrow-txt" style="color:rgba(255,255,255,0.5)">Appointments</span></div>
+      <div class="sec-title" style="color:#fff;margin-top:0.5rem">Ready for Your<br><em style="color:var(--rose2)">Glow Up?</em></div>
+      <p>Book an appointment at either of our Nairobi branches. We recommend booking at least 2 days in advance for braiding and loc services.</p>
+      <a href="https://wa.me/254748177338?text=Hi%20Mystic%20Beauty!%20I'd%20like%20to%20book%20an%20appointment." class="wa-btn" target="_blank">
+        <span class="wa-icon">💬</span> Book via WhatsApp
+      </a>
+    </div>
+    <div class="booking-form">
+      <div class="form-title">Book an Appointment</div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name"/>
+        </div>
+        <div class="fg">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="07XX XXX XXX"/>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Preferred Branch</label>
+        <select>
+          <option disabled selected>Choose a branch</option>
+          <option>Ngong Road — Menelik Suites</option>
+          <option>Kiambu Road — Highview Plaza</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Service Required</label>
+        <select>
+          <option disabled selected>Select service</option>
+          <option>Natural Hair Styling</option>
+          <option>Braiding / Cornrows</option>
+          <option>Gypsy / Wavy Locs</option>
+          <option>River Locs</option>
+          <option>Faux Locs</option>
+          <option>Weave / Extensions</option>
+          <option>Nails — Manicure / Pedicure</option>
+          <option>Gel / Acrylic Nails</option>
+          <option>Barber Services</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Preferred Date</label>
+          <input type="date"/>
+        </div>
+        <div class="fg">
+          <label>Preferred Time</label>
+          <input type="time" min="08:00" max="18:00"/>
+        </div>
+      </div>
+      <button class="submit-btn">Confirm Booking ✨</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <span class="brand-name">Mystic Beauty Lounge</span>
+      <span class="brand-tag">& Barbers · Nairobi, Kenya</span>
+      <p>Create your style with us ✨ Nairobi's go-to for natural hair, braids, locs, weaves, nails and barber services since 2017.</p>
+      <div class="social-row">
+        <a class="soc-btn" href="https://www.instagram.com/mysticbeautyloungeke/" title="Instagram" target="_blank">ig</a>
+        <a class="soc-btn" href="https://www.facebook.com/MysticBeautylounge/" title="Facebook" target="_blank">fb</a>
+        <a class="soc-btn" href="https://wa.me/254748177338" title="WhatsApp" target="_blank">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Natural Hair Styling</li>
+        <li>Braids & Cornrows</li>
+        <li>Gypsy & Wavy Locs</li>
+        <li>Weaves & Extensions</li>
+        <li>Nails & Nail Art</li>
+        <li>Barber Services</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ngong Road</h4>
+      <ul>
+        <li>Menelik Suites</li>
+        <li>Menelik Road, Kilimani</li>
+        <li><a href="tel:+254748177338">0748 177 338</a></li>
+        <li>Mon–Sat: 8am – 6pm</li>
+        <li>Sun: 10am – 6pm</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kiambu Road</h4>
+      <ul>
+        <li>Highview Plaza</li>
+        <li>Kiambu Road, Nairobi</li>
+        <li><a href="tel:+254718545501">0718 545 501</a></li>
+        <li>Mon–Sat: 8am – 6pm</li>
+        <li>Sun: 10am – 6pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Mystic Beauty Lounge & Barbers. All Rights Reserved.</p>
+    <p style="font-size:0.7rem;color:rgba(255,255,255,0.15)">Nominated Best Natural Hair Salon · AfriKinky Awards Kenya</p>
+  </div>
+</footer>
+
+<script>
+// Follower count animation
+function animCount(el,target,suffix,dur){
+  let v=0,step=target/80;
+  let t=setInterval(()=>{
+    v+=step;if(v>=target){v=target;clearInterval(t)}
+    el.textContent=Math.round(v)+(suffix||'');
+  },dur/80);
+}
+let done=false;
+new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting&&!done){
+    done=true;
+    animCount(document.getElementById('c1'),58,'K',1800);
+  }
+},{threshold:0.3}).observe(document.querySelector('.hero-left'));
+
+// Scroll reveal
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>revObs.observe(el));
+</script>
+
+<div class="claim-bar">
+  <p>🌸 <strong>Love what you see?</strong> This demo was built just for Mystic Beauty Lounge. Let's take it live.</p>
+  <a href="https://wa.me/254745882043?text=Hi%20Josie!%20I%20love%20the%20Mystic%20Beauty%20website%20demo%20and%20I%27d%20like%20to%20take%20it%20live%20%F0%9F%8C%B8">Claim Your Website →</a>
+</div>
+
+
+<script>
+  // Disable right click
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); return false; });
+  // Disable Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'F12') { e.preventDefault(); return false; }
+    if(e.ctrlKey && ['s','u','S','U'].includes(e.key)) { e.preventDefault(); return false; }
+    if(e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C'].includes(e.key)) { e.preventDefault(); return false; }
+  });
+</script>
+
+</body>
+</html>
